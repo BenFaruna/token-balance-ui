@@ -7,14 +7,17 @@ export const getReadOnlyProvider = () => {
     const { chainId } = useWeb3ModalAccount()
 
     if (!chainId) {
-        console.error('ChainId not found')
-        return
+        return new ethers.JsonRpcProvider(
+            import.meta.env.VITE_eth_rpc_url
+        );
     }
 
     const rpcUrl = ChainIdToRpcUrl[chainId];
 
     if (!rpcUrl) {
-        console.error('RPC URL not found')
+        return new ethers.JsonRpcProvider(
+            import.meta.env.VITE_eth_rpc_url
+        );
     }
 
     return new ethers.JsonRpcProvider(rpcUrl);

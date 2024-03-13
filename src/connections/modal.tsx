@@ -60,7 +60,7 @@ const ethersConfig = defaultConfig({
 const configureWeb3Modal = () => {
     createWeb3Modal({
         ethersConfig,
-        chains: [mainnet, sepolia, polygon, mumbai],
+        chains: [mainnet, polygon],
         projectId,
         enableAnalytics: true // Optional - defaults to your Cloud configuration
     })
